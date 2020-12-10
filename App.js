@@ -1,20 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableHighlight,Button,Alert } from 'react-native';
 
 export default function App() {
+
+  const handlePress =  ()=>console.log("clickeds");
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+        <Image source={require('./assets/icon.png')}/>
+      <TouchableHighlight onPress={handlePress}>
+        <Button title="login" onPress={() => Alert.alert("Senha Incorreta!","Caso tenha perdido sua senha, entre em contado com o administrador do sistema.",[{text:"yes", onPress: ()=> console.log("yes")},{text:"No"}])} ></Button>
+      </TouchableHighlight>
+   
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'dodgerblue',
     alignItems: 'center',
     justifyContent: 'center',
   },
