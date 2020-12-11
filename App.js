@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableHighlight,Button,Alert } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableHighlight,Button,Alert, Platform } from 'react-native';
 
 export default function App() {
 
@@ -12,7 +12,12 @@ export default function App() {
       <TouchableHighlight onPress={handlePress}>
         <Button title="login" onPress={() => Alert.alert("Senha Incorreta!","Caso tenha perdido sua senha, entre em contado com o administrador do sistema.",[{text:"yes", onPress: ()=> console.log("yes")},{text:"No"}])} ></Button>
       </TouchableHighlight>
-   
+      <View style={{
+        backgroundColor: 'red',
+        width: "50%",
+        height:70
+      }}>
+        </View>  
     </SafeAreaView>
   );
 }
@@ -23,5 +28,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'dodgerblue',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: Platform.OS === "android"? 20 : 0
   },
 });
