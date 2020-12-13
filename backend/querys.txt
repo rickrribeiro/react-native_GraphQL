@@ -1,0 +1,16 @@
+mutation{
+  createFriend(input:{
+    firstName:"ricardo",
+    lastName:"ribeiiro",
+    gender: MALE
+  }){
+    id
+    firstName
+  }
+}
+
+query{
+  getFriend(id:"630d350e2da3330b882b"){
+    firstName
+  }
+}

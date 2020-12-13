@@ -7,19 +7,27 @@ const schema = buildSchema(`
         id: ID
         firstName: String
         lastName: String
-        gender: String
+        gender: Gender
         email: String
     }
 
+    
+
+    enum Gender{
+        MALE
+        FEMALE
+        OTHER
+    }
+
     type Query{
-        friend: Friend
+        getFriend(id: ID): Friend
     }
 
     input FriendInput{
         id: ID
         firstName: String
         lastName: String
-        gender: String
+        gender: Gender
         email: String
     }
 
@@ -30,6 +38,4 @@ const schema = buildSchema(`
 `
 )
 
-module.exports = {
-    schema:schema
-}
+export default schema
