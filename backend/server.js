@@ -1,12 +1,25 @@
 const express = require("express")
-const app = express();
 const expressQL = require('express-graphql')
 const schema = require('./src/schemas/schema')
 
+const app = express();
 
 app.get('/',(req,res)=>{
     res.send("GraphQL")
 })
+
+const friendDB = {};
+
+class Friend{
+    constructor(id,{firstName,lastName, gender,email}){
+        this.id = id
+        this.firstName = firstName
+        this.lastName = lastName
+        this.email = email
+        this.gender = gender
+    }
+
+}
 
 const root = {
    friend: ()=>{
@@ -15,9 +28,14 @@ const root = {
            "firstName": 111,
            "lastName":"sadsad",
            "gender":"male",
-           "email":[{"email":"name@me.com"},{"email":"name@me2com"}]
+           "email":"me@me"
        }
-   } 
+   },
+   createFriend:({input}) =>{
+       let id = require('crypto').randomBytes(10).toString('hex');
+       friendDB[id] = input
+       return new Friend(id,input)
+   }
 }
 
 app.use('/graphql', expressQL.graphqlHTTP({
