@@ -28,6 +28,18 @@ const resolvers = {
                         }
                 })
             })
+    },
+    updateFriend:({input}) =>{
+        return new Promise((resolve, object)=>{
+            Friends.findOneAndUpdate({_id:input.id},input,{new:true},(err,friend)=>{
+                if(err){
+                    console.log("err"+err)
+                    reject(err)
+                }else{
+                    resolve(friend)
+                }
+            })
+        })
     }
 };
 

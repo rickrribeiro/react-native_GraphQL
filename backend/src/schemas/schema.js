@@ -45,6 +45,7 @@ type Contact {
 
     type Mutation {
         createFriend(input: FriendInput): Friend
+        updateFriend(input:FriendInput):Friend
     }
 
 `
