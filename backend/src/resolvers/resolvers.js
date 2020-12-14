@@ -1,26 +1,33 @@
-class Friend {
-    constructor(id, { firstName, lastName, gender, age, language, email }) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.age = age;
-        this.language = language;
-        this.email = email; 
-    }
-}
-
-const friendDatabase = {};
+import {Friends} from '../models/model'
 
 const resolvers = { 
     getFriend: ({ id }) => {
         return new Friend(id, friendDatabase[id]);
     },
     createFriend: ({ input }) => {
-        let id = require('crypto').randomBytes(10).toString('hex');
-        friendDatabase[id] = input;
-        console.log(friendDatabase)
-        return new Friend(id, input);
+        
+            const newFriend = new Friends({
+
+                firstName:input.firstName,
+                lastName: input.lastName,
+                gender: input.gender,
+                email: input.email,
+                age: input.age,
+                contacts: input.contacts
+            })
+            newFriend.id = newFriend._id
+            console.log(newFriend._id)
+            return new Promise((resolve,object)=>{
+              
+                newFriend.save((err) =>{
+                        if(err){
+                            console.log("err"+err)
+                            reject(err)
+                        }else{
+                            resolve(newFriend)
+                        }
+                })
+            })
     }
 };
 
