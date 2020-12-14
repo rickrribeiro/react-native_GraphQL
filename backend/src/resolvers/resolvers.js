@@ -2,8 +2,18 @@ import {Friends} from '../models/model'
 
 const resolvers = { 
     getFriend: ({ id }) => {
-        return new Friend(id, friendDatabase[id]);
+        return new Promise((resolve, object)=>{
+            Friends.findById(id,(err,friend)=>{
+                if(err){
+                    console.log("err"+err)
+                    reject(err)
+                }else{
+                    resolve(friend)
+                }
+            })
+        })
     },
+   
     createFriend: ({ input }) => {
         
             const newFriend = new Friends({

@@ -18,8 +18,13 @@ mutation{
   }
 }
 query{
-  getFriend(id:"630d350e2da3330b882b"){
+  queryone: getFriend(id:"5fd74e7f5158b4fc2f1488f7"){
     firstName
+    lastName
+  }
+  querytwo: getFriend(id:"5fd74e7f5158b4fc2f1488f7"){
+    firstName
+    lastName
   }
 }
 
