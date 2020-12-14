@@ -33,3 +33,8 @@ mutation{
   age
 }
 }
+
+
+mutation{
+deleteFriend(id:"5fd74e41960cf4fbc3532ffc")
+}

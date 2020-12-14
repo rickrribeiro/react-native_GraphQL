@@ -40,6 +40,18 @@ const resolvers = {
                 }
             })
         })
+    },
+    deleteFriend:({id}) =>{
+        return new Promise((resolve, object)=>{
+            Friends.remove({_id:id},(err)=>{
+                if(err){
+                    console.log("err"+err)
+                    reject(err)
+                }else{
+                    resolve("Deleted")
+                }
+            })
+        })
     }
 };
 
