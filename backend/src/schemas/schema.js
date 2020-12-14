@@ -26,6 +26,8 @@ type Contact {
 
     type Query{
         getFriend(id: ID): Friend
+        getAll: [Friend]
+        getByAge(age: Int):[Friend]
     }
 
     input FriendInput{

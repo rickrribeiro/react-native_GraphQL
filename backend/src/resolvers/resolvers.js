@@ -13,6 +13,30 @@ const resolvers = {
             })
         })
     },
+    getAll: () => {
+        return new Promise((resolve, object)=>{
+            Friends.find((err,friend)=>{
+                if(err){
+                    console.log("err"+err)
+                    reject(err)
+                }else{
+                    resolve(friend)
+                }
+            })
+        })
+    },
+    getByAge: ({age}) => {
+        return new Promise((resolve, object)=>{
+            Friends.find({'age':age},(err,friend)=>{
+                if(err){
+                    console.log("err"+err)
+                    reject(err)
+                }else{
+                    resolve(friend)
+                }
+            })
+        })
+    },
    
     createFriend: ({ input }) => {
         
