@@ -1,7 +1,7 @@
 {
     "db":{
-        "username":"",
-        "password":"",
-        "connectionString":""
+        "username":"ricardo",
+        "password":"g39w95pM2ebMMfd",
+        "connectionString":"mongodb+srv://ricardo:g39w95pM2ebMMfd@cluster0.jncb6.mongodb.net/gqldb?retryWrites=true&w=majority"
     }
 }
