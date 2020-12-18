@@ -1,25 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableHighlight,Button,Alert, Platform } from 'react-native';
+import Game from './src/components/Game'
+class App extends React.Component{
 
-export default function App() {
-
-  const handlePress =  ()=>console.log("clickeds");
+  // const handlePress =  ()=>console.log("clickeds");
+render(){
 
   return (
-    <SafeAreaView style={styles.container}>
-        <Image source={require('./assets/icon.png')}/>
-      <TouchableHighlight onPress={handlePress}>
-        <Button title="login" onPress={() => Alert.alert("Senha Incorreta!","Caso tenha perdido sua senha, entre em contado com o administrador do sistema.",[{text:"yes", onPress: ()=> console.log("yes")},{text:"No"}])} ></Button>
-      </TouchableHighlight>
-      <View style={{
-        backgroundColor: 'red',
-        width: "50%",
-        height:70
-      }}>
-        </View>  
-    </SafeAreaView>
-  );
+    // <SafeAreaView style={styles.container}>
+    //     <Image source={require('./assets/icon.png')}/>
+    //   <TouchableHighlight onPress={handlePress}>
+    //     <Button title="login" onPress={() => Alert.alert("Senha Incorreta!","Caso tenha perdido sua senha, entre em contado com o administrador do sistema.",[{text:"yes", onPress: ()=> console.log("yes")},{text:"No"}])} ></Button>
+    //   </TouchableHighlight>
+    //   <View style={{
+      //     backgroundColor: 'red',
+      //     width: "50%",
+      //     height:70
+      //   }}>
+      //     </View>  
+      // </SafeAreaView>
+      
+      <Game />
+      
+      );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -31,3 +36,5 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android"? 20 : 0
   },
 });
+
+export default App;
